@@ -1,5 +1,6 @@
 import * as cdk from 'aws-cdk-lib/core';
 import { Match, Template } from 'aws-cdk-lib/assertions';
+import { DEFAULT_GREETING } from '../lib/config';
 import { WorkflowStack } from '../lib/workflow-stack';
 
 function build(props: { alertEmail?: string } = {}) {
@@ -15,7 +16,7 @@ describe('WorkflowStack', () => {
     template.hasResourceProperties('AWS::SSM::Parameter', {
       Name: '/app/config/greeting',
       Type: 'String',
-      Value: 'Hello from CI/CD Automated Infrastructure!',
+      Value: DEFAULT_GREETING, // follows lib/config.ts, so changing the greeting never breaks the test
     });
   });
 
