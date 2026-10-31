@@ -1,0 +1,11 @@
+node_modules/
+cdk.out/
+.cdk.staging/
+*.js
+!jest.config.js
+*.d.ts
+__pycache__/
+*.pyc
+.pytest_cache/
+coverage/
+.DS_Store
